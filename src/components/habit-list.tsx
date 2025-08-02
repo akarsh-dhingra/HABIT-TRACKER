@@ -20,21 +20,24 @@ export default function HabitList(){
             else{
                 break;
             }
-            return streak;
+           
         }
+        return streak;
     }
 
     return (
         <Box sx={{display:"flex",flexDirection:"column",gap:2,mt:4 }} >   
         {habits.map((habit)=>{
       return <Paper key={habit.id} elevation={2} sx={{p:2}} >
-        <Grid  container alignItems="center" justifyContent="space-between" >
-           <Grid item xs={12} sm={6}>
-                <Typography variant="h6">{habit.name}
-                    <Typography variant="body2" color="text.secondary" >{habit.frequency}</Typography>
-                </Typography>
-            </Grid>
-         <Grid item >
+     <Grid container alignItems="center" justifyContent="space-between" >
+  <Grid size={{ xs: 6, md: 4 }} offset={{ xs: 3, md: 0 }}>
+    <Typography variant="h6">{habit.name}</Typography>
+    <Typography variant="body2" color="text.secondary">
+      {habit.frequency}
+    </Typography>
+  </Grid>
+
+          <Grid size={{ xs: 6, md: 4 }} offset={{ xs: 3, md: 0 }}>
             <Box sx={{display:"flex",gap:1,ml:"auto",flexWrap:"wrap"}} >
                 <Button variant="contained" 
                 color={habit.completedDates.includes(today)?"success":"primary"}
